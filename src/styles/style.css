@@ -229,3 +229,106 @@ h1 {
 .login-form > .form-control input {
   margin-bottom: 0.5rem;
 }
+
+/* slide show */
+.slideshow-container {
+  width: 50vw;
+  position: relative;
+  margin: auto; /* center horizontally*/
+}
+
+.mySlides img {
+  width: 100%;
+}
+
+.mySlides {
+  display: none;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  /* position inside image */
+  position: absolute;
+  top: 50%;
+
+  margin-top: -22px;
+  padding: 16px;
+  width: auto;
+  border-radius: 0 3px 3px 0;
+
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: white;
+
+  transition: 0.6s ease;
+  /* prevent user interaction */
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.dot-container {
+  text-align: center;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.mySlides .text {
+  color: #f2f2f2;
+  /* move text to center */
+  width: 100%;
+  text-align: center;
+
+  font-size: 1.5rem;
+  /* position inside image */
+  position: absolute;
+  bottom: 1.5rem;
+}
+
+.mySlides .numbertext {
+  color: #f2f2f2;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 0;
+}
+
+.dot-container .dot {
+  cursor: pointer;
+
+  height: 15px;
+  width: 15px;
+
+  background-color: #bbb;
+  transition: background-color 0.6s ease;
+
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.slideshow-container .active,
+.dot-container .dot:hover {
+  background-color: #717171;
+}
+
+/* animation */
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -19,3 +19,50 @@ document.addEventListener("click", (event) => {
     dropdown.classList.remove("active");
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  let slideIndex = 1;
+
+  const slides = Array.from(document.querySelectorAll(".mySlides"));
+  const dots = Array.from(document.querySelectorAll(".dot"));
+  const pre = document.querySelector(".prev");
+  const next = document.querySelector(".next");
+  showSlides(1);
+  pre.addEventListener("click", () => {
+    plusSlide(-1);
+  });
+  next.addEventListener("click", () => {
+    plusSlide(1);
+  });
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      currentSlide(index);
+    });
+  });
+
+  function plusSlide(n) {
+    showSlides((slideIndex += n));
+  }
+
+  function currentSlide(n) {
+    showSlides((slideIndex = n));
+  }
+
+  function showSlides(n) {
+    const numOfSlide = slides.length;
+    // loop over when slide number goes out of range
+    if (n > numOfSlide) slideIndex = 1;
+    if (n < 1) slideIndex = numOfSlide;
+    // loop over to change display of all slides and dots
+    for (let i = 0; i < numOfSlide; i++) {
+      slides[i].style.display = "none";
+    }
+    for (let i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    // show slide and dot
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+  }
+});
