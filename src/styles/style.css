@@ -159,3 +159,73 @@ h1 {
 .click-dropdown .dropdown-content a:hover {
   background-color: #3e8e41;
 }
+
+/* transition dropdown */
+
+.header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  background-color: #f3f3f3;
+  margin-top: 1rem;
+  padding: 0.5rem;
+}
+
+.link {
+  background: none;
+  border: none;
+  text-decoration: none;
+  color: #777;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  /* padding: 0.5rem 1.5rem; */
+}
+
+.dropdown.active > .link,
+.link:hover {
+  color: black;
+}
+
+.header .dropdown {
+  position: relative;
+}
+
+.header .dropdown-menu {
+  position: absolute;
+  left: 0.5rem;
+  top: calc(100% + 0.25rem);
+  background-color: white;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition:
+    opacity 150ms ease-in-out,
+    transform 150ms ease-in-out;
+}
+
+/* .dropdown.active > .link + .dropdown-menu { */
+.dropdown.active .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.information-grid {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  gap: 1em;
+}
+
+.dropdown .link {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.login-form > .form-control input {
+  margin-bottom: 0.5rem;
+}
