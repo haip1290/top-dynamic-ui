@@ -312,7 +312,7 @@ h1 {
   display: inline-block;
 }
 
-.slideshow-container .active,
+.dot-container .dot.active,
 .dot-container .dot:hover {
   background-color: #717171;
 }
